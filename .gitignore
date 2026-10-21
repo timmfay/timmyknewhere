@@ -1,0 +1,18 @@
+# Python 运行时生成的缓存
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 虚拟环境：每台电脑自己建，不提交
+.venv/
+
+# 密钥：真正的 .env 只在你自己的电脑上，永远不提交
+.env
+
+# 运行时生成、不需要提交的文件
+runs/fake.jsonl
+results/results.db
+
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
