@@ -29,8 +29,10 @@ def test_grade_no_number_at_all():
     assert grade("I am not sure.", "7") == (None, False, "none")
 
 
-# TODO(M2-6): 在这里继续写你自己的测试，至少再加 10 个。一些值得测的情况：
-#   - 回答里有两个 \boxed{}，应该取最后一个
+# TODO(M2-6): 在这里继续写你自己的测试，至少再加 10 个。
+# 断言时尽量把整个 (pred, correct, how) 都检查：只看 correct 的话，
+# 后备方案碰巧取到同一个数，测试也会通过。一些值得测的情况：
+#   - 回答里有两个 \boxed{}，应该取最后一个（how 应该是 "boxed"）
 #   - 千分位逗号 "1,000" 和 "1000" 相等
 #   - 负分数 \boxed{-\frac{7}{2}}
 #   - \dfrac 和 \tfrac
@@ -39,4 +41,6 @@ def test_grade_no_number_at_all():
 #   - response 是 None 或空字符串
 #   - 答案错了的情况（correct 应该是 False）
 #   - 0.333333 对 1/3 算对，0.33 对 1/3 算错
-#   - 带单位或文字的回答，比如 "\boxed{18 \text{ dollars}}"：想想现在会判成什么，应不应该算对
+#   - 钱、百分数和 LaTeX 千分位："\boxed{\$18}"、"\boxed{25\%}"、"\boxed{1{,}000}"
+#   - 带单位的回答 "\boxed{18 \text{ dollars}}" 应该算对
+#   - 带分数 "\boxed{2\frac{1}{2}}"：想想现在会判成什么，应不应该算对
