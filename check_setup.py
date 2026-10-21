@@ -31,8 +31,8 @@ for name, env_var, base_url, model, extra in PROVIDERS:
     # TODO 2: 只打印 key 的前 4 个字符，后面接 "***"。绝不打印整个 key。
     #         提示：字符串切片 key[:4]
 
-    client = OpenAI(api_key=key, base_url=base_url, timeout=60)
     try:
+        client = OpenAI(api_key=key, base_url=base_url, timeout=60)
         resp = client.chat.completions.create(
             model=model,
             max_tokens=50,

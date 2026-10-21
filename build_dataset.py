@@ -1,7 +1,8 @@
 """M1 题库：用固定随机种子从 GSM8K 测试集里抽 40 道题，写进 data/problems.jsonl。
 
 运行：python build_dataset.py
-连续运行两次，git status 应该显示 data/problems.jsonl 没有变化，说明结果可复现。
+连续运行两次，两次生成的文件 SHA-256 完全相同；提交以后再运行一次，git status 显示没有变化。
+这就说明结果可复现。
 """
 import json
 import random
@@ -83,10 +84,11 @@ def load_problems(path=OUT_PATH):
 
 def check_problems(problems):
     """自检，有问题就让程序停下来。"""
-    # TODO(M1-4): 用 assert 写三条检查：
+    # TODO(M1-4): 用 assert 写四条检查：
     #   - 所有 id 都不重复（提示：比较 len(set(...)) 和 len(...)）
     #   - split 只有 "dev" 和 "test"
     #   - 每个 answer 都能被 Fraction(answer) 解析（解析失败会直接抛异常，这本身就是检查）
+    #   - GSM8K 的答案都是整数：Fraction(answer).denominator == 1
     #   最后打印每个 split 各有多少题。
     raise NotImplementedError
 
