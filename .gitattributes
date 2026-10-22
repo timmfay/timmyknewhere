@@ -1,0 +1,2 @@
+# 数据文件一律用 LF 换行，保证 Windows 和 macOS 上的文件逐字节相同
+*.jsonl text eol=lf
